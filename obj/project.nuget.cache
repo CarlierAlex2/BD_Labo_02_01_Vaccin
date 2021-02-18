@@ -1,9 +1,11 @@
 {
   "version": 2,
-  "dgSpecHash": "TH7FbE6kO3RXw/jO7iWIz2onHJxxWz/CxoIee4RLsEk6OEfc1nB9d8GZhiWlGTbbPzeO/GAg8tdBHfI8JmfpHA==",
+  "dgSpecHash": "iZfw28hLj3OfwNMic7H2n3STNzemhroyovNiU1EuE05RX//aP3s/gMx/O5ln7ATBmYBYtvpIlzWNG1QGwRwqxw==",
   "success": true,
   "projectFilePath": "C:\\Users\\alexc\\Documents\\MCT\\Jaar2_2020_2021\\MCT_semester_4\\BackendDevelopment\\BD_Labo\\BD_Labo_02_01_Vaccin\\BD_Labo_02_01_Vaccin.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\alexc\\.nuget\\packages\\csvhelper\\23.0.0\\csvhelper.23.0.0.nupkg.sha512",
+    "C:\\Users\\alexc\\.nuget\\packages\\microsoft.aspnetcore.mvc.versioning\\5.0.0\\microsoft.aspnetcore.mvc.versioning.5.0.0.nupkg.sha512",
     "C:\\Users\\alexc\\.nuget\\packages\\microsoft.extensions.apidescription.server\\3.0.0\\microsoft.extensions.apidescription.server.3.0.0.nupkg.sha512",
     "C:\\Users\\alexc\\.nuget\\packages\\microsoft.openapi\\1.2.3\\microsoft.openapi.1.2.3.nupkg.sha512",
     "C:\\Users\\alexc\\.nuget\\packages\\swashbuckle.aspnetcore\\5.6.3\\swashbuckle.aspnetcore.5.6.3.nupkg.sha512",

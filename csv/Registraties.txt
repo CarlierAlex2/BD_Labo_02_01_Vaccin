@@ -1,0 +1,4 @@
+RegistratieID;Naam;Voornaam;Email;Leeftijd;Datum;TypeID;LocatieID
+9bc49142-25b1-4753-8b38-c42e8d801a04;Carlier;Alex;alex.carlier@student.howest.be;19;10/02/2021;4e2a72fb-f4fa-416f-87cd-ea338b518519;c2bb5085-52d8-4278-9eb1-9defeb483b0e
+3efc7267-43d2-44c4-8181-1251f5984386;Carlier;Alex;alex.carlier@student.howest.be;19;10/02/2021;4e2a72fb-f4fa-416f-87cd-ea338b518519;c2bb5085-52d8-4278-9eb1-9defeb483b0e
+053fedb5-5c9e-49b1-bc4f-5f97d6db66ed;Carlier;Alex;alex.carlier@student.howest.be;19;10/02/2021;4e2a72fb-f4fa-416f-87cd-ea338b518519;c2bb5085-52d8-4278-9eb1-9defeb483b0e

@@ -25,6 +25,7 @@
     ".NETCoreApp,Version=v5.0": {
       "BD_Labo_02_01_Vaccin/1.0.0": {
         "dependencies": {
+          "CsvHelper": "23.0.0",
           "Swashbuckle.AspNetCore": "5.6.3",
           "Microsoft.AspNetCore.Antiforgery": "5.0.0.0",
           "Microsoft.AspNetCore.Authentication.Abstractions": "5.0.0.0",
@@ -315,6 +316,17 @@
         },
         "compile": {
           "BD_Labo_02_01_Vaccin.dll": {}
+        }
+      },
+      "CsvHelper/23.0.0": {
+        "runtime": {
+          "lib/net5.0/CsvHelper.dll": {
+            "assemblyVersion": "23.0.0.0",
+            "fileVersion": "23.0.0.0"
+          }
+        },
+        "compile": {
+          "lib/net5.0/CsvHelper.dll": {}
         }
       },
       "Microsoft.Extensions.ApiDescription.Server/3.0.0": {},
@@ -2081,6 +2093,13 @@
       "type": "project",
       "serviceable": false,
       "sha512": ""
+    },
+    "CsvHelper/23.0.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-7Zh7ynDUq6fKa9gDFogBn49XI9cl2THg+WzKL2Ouwk0v65kAD6Kd7Ks1UXWqm3WXbZQlWV58Qz9nPCbx7jEB7Q==",
+      "path": "csvhelper/23.0.0",
+      "hashPath": "csvhelper.23.0.0.nupkg.sha512"
     },
     "Microsoft.Extensions.ApiDescription.Server/3.0.0": {
       "type": "package",

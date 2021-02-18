@@ -11,6 +11,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Microsoft.OpenApi.Models;
+using BD_Labo_02_01_Vaccin.Configurations;
 
 namespace BD_Labo_02_01_Vaccin
 {
@@ -26,7 +27,7 @@ namespace BD_Labo_02_01_Vaccin
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-
+            services.Configure<CSVSettings>(Configuration.GetSection("CSVSettings"));
             services.AddControllers();
             services.AddSwaggerGen(c =>
             {

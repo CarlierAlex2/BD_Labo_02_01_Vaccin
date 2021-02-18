@@ -27,3 +27,4 @@ C:\Users\alexc\Documents\MCT\Jaar2_2020_2021\MCT_semester_4\BackendDevelopment\B
 C:\Users\alexc\Documents\MCT\Jaar2_2020_2021\MCT_semester_4\BackendDevelopment\BD_Labo\BD_Labo_02_01_Vaccin\obj\Debug\net5.0\ref\BD_Labo_02_01_Vaccin.dll
 C:\Users\alexc\Documents\MCT\Jaar2_2020_2021\MCT_semester_4\BackendDevelopment\BD_Labo\BD_Labo_02_01_Vaccin\obj\Debug\net5.0\BD_Labo_02_01_Vaccin.pdb
 C:\Users\alexc\Documents\MCT\Jaar2_2020_2021\MCT_semester_4\BackendDevelopment\BD_Labo\BD_Labo_02_01_Vaccin\obj\Debug\net5.0\BD_Labo_02_01_Vaccin.genruntimeconfig.cache
+C:\Users\alexc\Documents\MCT\Jaar2_2020_2021\MCT_semester_4\BackendDevelopment\BD_Labo\BD_Labo_02_01_Vaccin\bin\Debug\net5.0\CsvHelper.dll
