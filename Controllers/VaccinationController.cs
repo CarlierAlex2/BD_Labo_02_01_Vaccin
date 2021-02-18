@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using BD_Labo_02_01_Vaccin.Models;
+using BD_Labo_02_01_Vaccin.DTO;
 using BD_Labo_02_01_Vaccin.Configurations;
 
 //CSV Helper ------------------------------
@@ -15,11 +16,14 @@ using Microsoft.Extensions.Options;
 using CsvHelper.Configuration;
 
 using Microsoft.AspNetCore.Mvc.Versioning;
+using AutoMapper;
 
 namespace BD_Labo_02_01_Vaccin.Controllers
 {
     [ApiController]
     [Route("api")]
+    [ApiVersion("1.0")]
+    [ApiVersion("2.0")]
     public class VaccinationController : ControllerBase
     {
         private CSVSettings _settings;
@@ -27,11 +31,13 @@ namespace BD_Labo_02_01_Vaccin.Controllers
         private static List<Locatie> _listLocations;
         private static List<VaccinType> _listTypes;
         private readonly ILogger<VaccinationController> _logger;
+        private readonly IMapper _mapper;
 
-        public VaccinationController(ILogger<VaccinationController> logger, IOptions<CSVSettings> settings)
+        public VaccinationController(ILogger<VaccinationController> logger, IOptions<CSVSettings> settings, IMapper mapper)
         {
             _settings = settings.Value;
             _logger = logger;
+            _mapper = mapper;
 
             Initialize();
 
@@ -145,7 +151,9 @@ namespace BD_Labo_02_01_Vaccin.Controllers
         // ===================================================================================================================
         [HttpGet]
         [Route("registrations")]
-        public ActionResult<List<VaccinRegistration>> GetRegistrations(string date = ""){
+        [MapToApiVersion("1.0")]
+        public ActionResult<List<VaccinRegistration>> GetRegistrationsV1(string date = ""){
+            _logger.LogInformation("GetRegistrationsV1");
             if(date == null || date.Length <= 0)
                 return new OkObjectResult(_listRegistrations);
 
@@ -157,6 +165,25 @@ namespace BD_Labo_02_01_Vaccin.Controllers
         }
 
         [HttpGet]
+        [Route("registrations")]
+        [MapToApiVersion("2.0")]
+        public ActionResult<List<VaccinRegistration>> GetRegistrationsV2(string date = ""){
+            _logger.LogInformation("GetRegistrationsV2");
+            if(date == null || date.Length <= 0)
+            {
+                var returnedListFull = _mapper.Map<List<VaccinRegistrationDTO>>(_listRegistrations);
+                return new OkObjectResult(returnedListFull);
+            }
+
+            var filteredList = _listRegistrations.FindAll(delegate(VaccinRegistration vac){
+                return vac.Datum == date;
+                });
+            
+            var returnedList = _mapper.Map<List<VaccinRegistrationDTO>>(filteredList);
+            return new OkObjectResult(returnedList);
+        }
+
+        [HttpGet]
         [Route("locations")]
         public ActionResult<List<Locatie>> GetLocations(){
             return new OkObjectResult(_listLocations);
@@ -164,6 +191,7 @@ namespace BD_Labo_02_01_Vaccin.Controllers
 
         [HttpGet]
         [Route("vaccins")]
+        [ResponseCache(Duration = 30, Location = ResponseCacheLocation.Any)]
         public ActionResult<List<VaccinType>> GetVaccinTypes(){
             return new OkObjectResult(_listTypes);
         }

@@ -12,6 +12,7 @@ using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Microsoft.OpenApi.Models;
 using BD_Labo_02_01_Vaccin.Configurations;
+using Microsoft.AspNetCore.Mvc.Versioning;
 
 namespace BD_Labo_02_01_Vaccin
 {
@@ -29,6 +30,18 @@ namespace BD_Labo_02_01_Vaccin
         {
             services.Configure<CSVSettings>(Configuration.GetSection("CSVSettings"));
             services.AddControllers();
+
+            services.AddApiVersioning(config=> {
+                config.DefaultApiVersion = new ApiVersion(2, 0);
+                config.AssumeDefaultVersionWhenUnspecified = true;
+                config.ReportApiVersions = true;
+                config.ApiVersionReader = new HeaderApiVersionReader("api-version");
+            });
+
+            services.AddAutoMapper(typeof(Startup));
+
+            services.AddResponseCaching();
+
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "BD_Labo_02_01_Vaccin", Version = "v1" });
@@ -50,6 +63,8 @@ namespace BD_Labo_02_01_Vaccin
             app.UseRouting();
 
             app.UseAuthorization();
+
+            app.UseResponseCaching(); //exact deze plaats
 
             app.UseEndpoints(endpoints =>
             {
