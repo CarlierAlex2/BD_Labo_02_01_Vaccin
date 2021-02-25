@@ -77,7 +77,20 @@
             "dependsOn": [
                 "docker-build: debug"
             ],
-            "dockerRun": {},
+            "dockerRun": {
+                "env": {
+                    "ASPNETCORE_URLS": "https://+:5001;http://+:5000",
+                    "ASPNETCORE_Kestrel__Certificates__Default__Password" : "SUPER_SECRET_PASSWORD",
+                    "ASPNETCORE_Kestrel__Certificates__Default__Path" : "/https/aspnetapp.pfx"
+                },
+                "ports": [
+                    { "containerPort": 5000, "hostPort": 5000 },
+                    { "containerPort": 5001, "hostPort": 5001 }
+                ],
+                "volumes":[
+                    {"localPath":".aspnet/https", "containerPath":"/https"}
+                ]
+            },
             "netCore": {
                 "appProject": "${workspaceFolder}/BD_Labo_02_01_Vaccin.csproj",
                 "enableDebugging": true
